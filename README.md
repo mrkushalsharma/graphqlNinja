@@ -1,0 +1,2 @@
+# graphqlNinja
+graphqlNinja practice
