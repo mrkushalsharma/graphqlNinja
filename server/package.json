@@ -1,0 +1,22 @@
+{
+  "name": "graphqlninja",
+  "version": "1.0.0",
+  "description": "graphql via The Net Ninja practice",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrkushalsharma/graphqlNinja.git"
+  },
+  "author": "kushal sharma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mrkushalsharma/graphqlNinja/issues"
+  },
+  "homepage": "https://github.com/mrkushalsharma/graphqlNinja#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
