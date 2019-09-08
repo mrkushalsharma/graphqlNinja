@@ -7,7 +7,7 @@ const app = express()
 
 //connect to mongoose
 mongoose.connect('mongodb://localhost:27017/graphql' ,  {useNewUrlParser: true}, () => {
-    console.log('db connected')
+    console.log('db connected 😁')
 })
 app.use('/graphql', graphqlHTTP({
     schema,
