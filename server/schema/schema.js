@@ -1,5 +1,7 @@
 const graphql = require('graphql')
 const _ = require('lodash')
+const { Types: { ObjectId } } = require('mongoose')
+
 const Book = require('../models/book')
 const Author = require('../models/author')
 
@@ -117,6 +119,38 @@ const Mutation = new GraphQLObjectType({
                 book.genre = args.genre
                 book.authorId = args.authorId
                 return book.save()
+            }
+        },
+        deleteBook: {
+            type: BookType,
+            args:{
+                id: { type: new GraphQLNonNull(GraphQLID)},
+            },
+            resolve(parent, args){
+                return Book.findByIdAndRemove(args.id)
+            }
+        },
+        updateBook: {
+            type: BookType,
+            args:{
+                id: { type: new GraphQLNonNull(GraphQLID)},
+                name: { type: GraphQLString  },
+                genre: { type: GraphQLString },
+                authorId: { type: GraphQLID }
+            },
+            async resolve(parent,args){
+                console.log(args.id)
+                const book = await Book.findOne({_id:args.id})
+                console.log(book)
+                if(args.name)
+                    book.name = args.name
+                if(args.genre)
+                    book.genre = args.genre
+                if(args.authorId)
+                    book.authorId = args.authorId
+
+                book.save()
+                return book
             }
         }
     }
